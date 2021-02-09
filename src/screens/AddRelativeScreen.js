@@ -7,26 +7,48 @@ import moment from "moment";
 const AddRelativeScreen = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [showModal, setShowModal] = useState(false);
-  const [date, setDate] = useState(new Date())
+  const [showBDateModal, setShowBDateModal] = useState(false);
+  const [showDDateModal, setShowDDateModal] = useState(false);
+  const [BDate, setBDate] = useState(new Date())
+  const [DDate, setDDate] = useState(new Date())
 
 
-  const onTouchDate = () => {
-    setShowModal(true)
+
+
+  const onTouchBDate = () => {
+    setShowBDateModal(true)
   }
 
-  const onCloseModal = () => {
-    setShowModal(false)
+  const onCloseBDateModal = () => {
+    setShowBDateModal(false)
   }
 
-  const onDateChange = (event, selectedDate) => {
-    setDate(selectedDate)
+  const onBDateChange = (event, selectedDate) => {
+    setBDate(selectedDate)
 
   }
-  const onDateModalSubmit = () => {
-    setShowModal(false)
-    setDate(date)
+  const onBDateModalSubmit = () => {
+    setShowBDateModal(false)
+    setBDate(BDate)
+  }
 
+
+
+  const onTouchDDate = () => {
+    setShowDDateModal(true)
+  }
+
+  const onCloseDDateModal = () => {
+    setShowDDateModal(false)
+  }
+
+  const onDDateChange = (event, selectedDate) => {
+    setDDate(selectedDate)
+
+  }
+  const onDDateModalSubmit = () => {
+    setShowDDateModal(false)
+    setDDate(DDate)
   }
 
   return (
@@ -59,19 +81,37 @@ const AddRelativeScreen = () => {
 
           <View>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <TouchableOpacity onPress={onTouchDate}>
+
+              <Text style={{ ...styles.dateInputText, fontSize: 18, paddingBottom: 10 }}>Enter Birth Date: </Text>
+
+              <TouchableOpacity onPress={onTouchBDate}>
                 <View style={styles.dateInput}>
-                  <Text style={styles.dateInputText}>{date.toDateString()}</Text>
+                  <Text style={styles.dateInputText}>{BDate.toDateString()}</Text>
                 </View>
               </TouchableOpacity>
 
               <DateModal
-                textStyle={styles.datePickerTextStyle}
-                showModal={showModal}
-                onCloseModal={onCloseModal}
-                date={date}
-                onDateChange={onDateChange}
-                onDateModalSubmit={onDateModalSubmit} />
+                showModal={showBDateModal}
+                onCloseModal={onCloseBDateModal}
+                date={BDate}
+                onDateChange={onBDateChange}
+                onDateModalSubmit={onBDateModalSubmit} />
+
+              <Text style={{ ...styles.dateInputText, fontSize: 18, paddingBottom: 10 }}>Enter Death Date: </Text>
+
+              <TouchableOpacity onPress={onTouchDDate}>
+                <View style={styles.dateInput}>
+                  <Text style={styles.dateInputText}>{DDate.toDateString()}</Text>
+                </View>
+              </TouchableOpacity>
+
+              <DateModal
+                showModal={showDDateModal}
+                onCloseModal={onCloseDDateModal}
+                date={DDate}
+                onDateChange={onDDateChange}
+                onDateModalSubmit={onDDateModalSubmit} />
+
             </View>
           </View>
           <Button
@@ -109,13 +149,14 @@ const styles = StyleSheet.create({
     height: 50,
     borderBottomColor: '#75ad68',
     borderBottomWidth: 2,
-    marginVertical: 10,
+    marginBottom: 10,
     paddingHorizontal: 20,
-    borderTopEndRadius: 8,
-    borderTopStartRadius: 8
+    borderTopEndRadius: 5,
+    borderTopStartRadius: 5
   },
   dateInputText: {
     fontSize: 15,
+    color: '#545c56'
   },
 
   touchableDatePicker: {
@@ -135,11 +176,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
 
   },
-  datePickerTextStyle: {
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderColor: 'grey',
-    borderWidth: 1
-  }
+
 
 });

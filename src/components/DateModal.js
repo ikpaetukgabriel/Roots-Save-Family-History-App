@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Modal, TouchableOpacity } from 'react-native';
 import { Button } from "react-native-paper";
 
 import DateTimePicker from '@react-native-community/datetimepicker';
-import moment from 'moment'
+
 
 
 
