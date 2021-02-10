@@ -14,6 +14,7 @@ const AddRelativeScreen = () => {
   const [showDDateModal, setShowDDateModal] = useState(false);
   const [BDate, setBDate] = useState(new Date())
   const [DDate, setDDate] = useState(new Date())
+  const [relationship, setRelationship] = useState('')
   const [image, setImage] = useState(null);
 
 
@@ -72,25 +73,34 @@ const AddRelativeScreen = () => {
 
 
             <TextInput
-              style={{ height: 55 }}
+              style={{ height: 55, marginTop: 5 }}
               label="First name"
               value={firstName}
               onChangeText={(newText) => setFirstName(newText)}
               autoCorrect={false}
               underlineColor="#a8eb34"
             />
-          </View>
 
-          <View style={styles.inputContainer}>
             <TextInput
-              style={{ height: 55 }}
+              style={{ height: 55, marginTop: 5 }}
               label="Last name"
               value={lastName}
               onChangeText={(newText) => setLastName(newText)}
               autoCorrect={false}
               underlineColor="#a8eb34"
             />
+
+            <TextInput
+
+              style={{ height: 55, marginTop: 5 }}
+              label="Relationship"
+              value={relationship}
+              onChangeText={(newText) => setRelationship(newText)}
+              autoCorrect={false}
+              underlineColor="#a8eb34"
+            />
           </View>
+
 
           <View>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -171,7 +181,6 @@ const styles = StyleSheet.create({
   },
 
   dateInput: {
-
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
