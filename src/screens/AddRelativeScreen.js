@@ -118,7 +118,7 @@ const AddRelativeScreen = () => {
 
               <TouchableOpacity style={{ marginTop: 15 }} onPress={onTouchDDate}>
                 <View style={styles.dateInput}>
-                  <Text style={{ ...styles.dateInputText, fontSize: 15, fontWeight: 'bold' }}>Death Date:
+                  <Text style={{ ...styles.dateInputText, fontSize: 15, fontWeight: 'bold' }}>Death Date
                   <Text style={{ fontSize: 12 }}> (If any)</Text>
                   </Text>
                   <Text style={styles.dateInputText}>{DDate.toDateString()}</Text>
