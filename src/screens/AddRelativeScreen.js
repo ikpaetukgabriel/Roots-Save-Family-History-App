@@ -171,8 +171,9 @@ const styles = StyleSheet.create({
   },
 
   dateInput: {
-    flexDirection: 'row',
+
     alignItems: 'center',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 10,
     height: 50,
